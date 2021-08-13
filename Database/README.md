@@ -29,7 +29,7 @@ void Database::AddEvent(const Date &date, const string &event) {
 }
 ```
 
-> ## Delete event (Del Date Event)
+> ## Deleting an event (Del Date Event)
 > The command must **remove the previously added event with the specified name on the specified date, if it exists**. If the event is found and deleted, the program should print the string ***"Deleted successfully"*** (without quotes). If the event is not found on the specified date, the program should display the string ***"Event not found"*** (without quotes).
 
 ```cpp
@@ -44,7 +44,7 @@ bool Database::DeleteEvent(const Date &date, const string &event) {
 } 
 ```
 
-> ## Delete multiple events (Del Date)
+> ## Deleting multiple events (Del Date)
 > The command removes all previously added events for the specified date. The program should always output a string like ***"Deleted N events"***, where **N** is the **number of all found and deleted events**. N can be zero if there were no events on the specified date.
 
 ```cpp 
@@ -58,7 +58,7 @@ unsigned long Database::DeleteDate(const Date &date) {
 }
 ```
 
-> ## Event Search (Find Date)
+> ## Event Searching (Find Date)
 > Find and print previously added events on a specified date. The program should only print the events themselves, one per line. Events must be sorted in ascending order (in the order of comparing strings with each other).
 
 ```cpp
@@ -71,7 +71,7 @@ set<string> Database::Find(const Date &date) const {
 }
 ```
 
-> ## Print all events (Print)
+> ## Printing all events (Print)
 > Using this command, we can show the complete content of our database. The program should print all Date Event pairs, one per line. All pairs must be sorted by date, and events within the same date must be sorted in ascending order. Dates must be formatted in a special way: YYYY-MM-DD, where Y, M, D are the year, month and day, respectively. If a number has fewer digits, then it must be padded with zeros, for example, 0001-01-01 - January 1st of the first year.
 
 ```cpp
