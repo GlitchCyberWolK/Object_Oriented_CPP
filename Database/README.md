@@ -156,8 +156,7 @@ Date::Date(const long long &y, const long long &m, const long long &d) {
 + 1- + 1- + 1 is a valid date, since +1 is an integer
   
 > After processing any of the described errors, entering and printing a message, the program should terminate its execution.
-```
-```
+
 
 > ## Remarks
 > ### **Uncaught exceptions**
