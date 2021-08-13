@@ -18,17 +18,17 @@ The event is defined as a string of arbitrary printable characters without delim
 
 All commands, dates and events are separated by spaces as you type. Commands are read from standard input. There can be exactly one command on one line, but you can enter multiple commands on multiple lines. Blank lines can also come in - ignore them and continue processing new commands on subsequent lines.
 
-> ## Adding an event (Add Date Event)
-> When adding an event, the database must remember it and then show it when searching (using the Find command) or printing (using the Print command). If the specified event already exists for the given date, re-adding it should be ignored. If the input is correct (see the section ***"Handling Input Errors"***), the program should not display anything on the screen.
-> 
+## Adding an event (Add Date Event)
+When adding an event, the database must remember it and then show it when searching (using the Find command) or printing (using the Print command). If the specified event already exists for the given date, re-adding it should be ignored. If the input is correct (see the section ***"Handling Input Errors"***), the program should not display anything on the screen.
+
 ```cpp
 void Database::AddEvent(const Date &date, const string &event) {
     database[date].insert(event);
 }
 ```
 
-> ## Deleting an event (Del Date Event)
-> The command must **remove the previously added event with the specified name on the specified date, if it exists**. If the event is found and deleted, the program should print the string ***"Deleted successfully"*** (without quotes). If the event is not found on the specified date, the program should display the string ***"Event not found"*** (without quotes).
+## Deleting an event (Del Date Event)
+The command must **remove the previously added event with the specified name on the specified date, if it exists**. If the event is found and deleted, the program should print the string ***"Deleted successfully"*** (without quotes). If the event is not found on the specified date, the program should display the string ***"Event not found"*** (without quotes).
 
 ```cpp
 bool Database::DeleteEvent(const Date &date, const string &event) {
@@ -42,8 +42,8 @@ bool Database::DeleteEvent(const Date &date, const string &event) {
 } 
 ```
 
-> ## Deleting multiple events (Del Date)
-> The command removes all previously added events for the specified date. The program should always output a string like ***"Deleted N events"***, where **N** is the **number of all found and deleted events**. N can be zero if there were no events on the specified date.
+ ## Deleting multiple events (Del Date)
+ The command removes all previously added events for the specified date. The program should always output a string like ***"Deleted N events"***, where **N** is the **number of all found and deleted events**. N can be zero if there were no events on the specified date.
 
 ```cpp 
 unsigned long Database::DeleteDate(const Date &date) {
@@ -56,8 +56,8 @@ unsigned long Database::DeleteDate(const Date &date) {
 }
 ```
 
-> ## Event Searching (Find Date)
-> Find and print previously added events on a specified date. The program should only print the events themselves, one per line. Events must be sorted in ascending order (in the order of comparing strings with each other).
+## Event Searching (Find Date)
+Find and print previously added events on a specified date. The program should only print the events themselves, one per line. Events must be sorted in ascending order (in the order of comparing strings with each other).
 
 ```cpp
 set<string> Database::Find(const Date &date) const {
@@ -69,8 +69,8 @@ set<string> Database::Find(const Date &date) const {
 }
 ```
 
-> ## Printing all events (Print)
-> Using this command, we can show the complete content of our database. The program should print all Date Event pairs, one per line. All pairs must be sorted by date, and events within the same date must be sorted in ascending order. Dates must be formatted in a special way: YYYY-MM-DD, where Y, M, D are the year, month and day, respectively. If a number has fewer digits, then it must be padded with zeros, for example, 0001-01-01 - January 1st of the first year.
+## Printing all events (Print)
+ Using this command, we can show the complete content of our database. The program should print all Date Event pairs, one per line. All pairs must be sorted by date, and events within the same date must be sorted in ascending order. Dates must be formatted in a special way: YYYY-MM-DD, where Y, M, D are the year, month and day, respectively. If a number has fewer digits, then it must be padded with zeros, for example, 0001-01-01 - January 1st of the first year.
 
 ```cpp
 void Database::Print() const {
