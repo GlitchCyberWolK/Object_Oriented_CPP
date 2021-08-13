@@ -52,4 +52,4 @@ name[Rational(1, 2)] = "one half";
 ```
 
  ## Changes
- I changed the implementation of the Rational class constructor so that it throws an invalid_argument exception if the denominator is zero. Also, rewrite the implementation of the division operator for the Rational class so that it throws a domain_error exception if the divisor is zero.
+ I changed the implementation of the Rational class constructor so that it throws an invalid_argument exception if the denominator is zero. Also, I rewrited the implementation of the division operator for the Rational class so that it throws a domain_error exception if the divisor is zero.
