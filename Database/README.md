@@ -9,7 +9,7 @@ The event is defined as a string of arbitrary printable characters without delim
  The event cannot be an empty string. Many different events can occur on the same date, the database must be able to save them all. 
  It is **not necessary** to save identical events that occurred on the same day: it is enough to save only one of them. 
 
- > Our database must understand **certain commands** in order to interact with it: 
+ Our database must understand **certain commands** in order to interact with it: 
  - **Adding an event: Add Date Event**
  - **Delete event: Del Date Event**
  - **Deleting all events for a specific date: Del Date**
