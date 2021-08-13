@@ -2,12 +2,10 @@
 
 # CRUD Database 
 
-> A C ++ program that implements work with a simple **database** (abbreviated as "DB"). 
-> The program will communicate with the user via **standard input and output** (stdin and stdout streams).
->
-> We will store pairs of the following type in our database: **date, event**.  Let's define the date as a string of the *Year-Month-Day* type, where Year, Month and Day are integers.
->
-> The event is defined as a string of arbitrary printable characters without delimiters inside (spaces, tabs, etc.). 
+A C ++ program that implements work with a simple **database** (abbreviated as "DB"). 
+The program will communicate with the user via **standard input and output** (stdin and stdout streams).
+We will store pairs of the following type in our database: **date, event**.  Let's define the date as a string of the *Year-Month-Day* type, where Year, Month and Day are integers.
+The event is defined as a string of arbitrary printable characters without delimiters inside (spaces, tabs, etc.). 
  The event cannot be an empty string. Many different events can occur on the same date, the database must be able to save them all. 
  It is **not necessary** to save identical events that occurred on the same day: it is enough to save only one of them. 
 
@@ -18,7 +16,7 @@
  - **Search for events for a specific date: Find Date**
  - **Print all events for all dates: Print**
 
-> All commands, dates and events are separated by spaces as you type. Commands are read from standard input. There can be exactly one command on one line, but you can enter multiple commands on multiple lines. Blank lines can also come in - ignore them and continue processing new commands on subsequent lines.
+All commands, dates and events are separated by spaces as you type. Commands are read from standard input. There can be exactly one command on one line, but you can enter multiple commands on multiple lines. Blank lines can also come in - ignore them and continue processing new commands on subsequent lines.
 
 > ## Adding an event (Add Date Event)
 > When adding an event, the database must remember it and then show it when searching (using the Find command) or printing (using the Print command). If the specified event already exists for the given date, re-adding it should be ignored. If the input is correct (see the section ***"Handling Input Errors"***), the program should not display anything on the screen.
@@ -84,10 +82,10 @@ void Database::Print() const {
 }
 ```
 
-> ## Handling Input Errors
-> The input **is not always correct**: the program must handle some input errors correctly.
->
-> If the user entered an unknown command, then the program should report this by displaying the line ***"Unknown command: COMMAND"***, where **COMMAND** is the **command entered by the user**. The command is the first word in the line (up to a space).
+ ## Handling Input Errors
+ The input **is not always correct**: the program must handle some input errors correctly.
+
+If the user entered an unknown command, then the program should report this by displaying the line ***"Unknown command: COMMAND"***, where **COMMAND** is the **command entered by the user**. The command is the first word in the line (up to a space).
 
 ```cpp
 default: { // Everything other than the commands included in our database
@@ -95,7 +93,7 @@ cout << "Unknown command: " << userDemand << endl;
             }
 ```
 
-> If the date does not correspond to the **Year-Month-Day** format, where **Year, Month and Day are arbitrary integers**, then the program should print ***"Wrong date format: DATE"***, where **DATE** is what the user entered instead of the date (before a space). Please note that the parts of the date are separated by exactly **one hyphen**, and the date itself should not contain extra characters either before the year or after the day. Date parts **cannot be empty**, but **can be zero or even negative**.
+ If the date does not correspond to the **Year-Month-Day** format, where **Year, Month and Day are arbitrary integers**, then the program should print ***"Wrong date format: DATE"***, where **DATE** is what the user entered instead of the date (before a space). Please note that the parts of the date are separated by exactly **one hyphen**, and the date itself should not contain extra characters either before the year or after the day. Date parts **cannot be empty**, but **can be zero or even negative**.
 
 ```cpp
 Date getDateFromString(const string &dateString) {
@@ -123,7 +121,7 @@ Date getDateFromString(const string &dateString) {
     return {year, month, day};
 }
 ```
-> If the date format is correct, the database needs to **check the validity of the month and day**.
+If the date format is correct, the database needs to **check the validity of the month and day**.
 
 + If the month number is not a number from **1 to 12**, the databse outputs ***"Month value is invalid: MONTH"***, where **MONTH** is an invalid month number, for example, 13 or -1.
   
@@ -143,7 +141,7 @@ Date::Date(const long long &y, const long long &m, const long long &d) {
 }
 ```
 
-> ### Note that:
+### Note that:
 + The databse **does not** check the year value separately.
 + The databse does not check the **correctness** of the calendar date: the number of days in each month is considered equal to 31, leap years are not being taken into account.
 + If both the month and the day are incorrect, then the database  displays one error message about the incorrectness of the given month.
@@ -158,10 +156,10 @@ Date::Date(const long long &y, const long long &m, const long long &d) {
 > After processing any of the described errors, entering and printing a message, the program should terminate its execution.
 
 
-> ## Remarks
-> ### **Uncaught exceptions**
-> Since solving the problem requires a program that works correctly on a large number of different input data, it is inevitable that errors may be found in it. 
-> One such error can be an uncaught exception: the error is that the exception, being thrown, does not fall under any of the catch block expressions up to the main function. In this case, the program will immediately terminate abnormally, and you will see "Unknown signal 6" as an error in the test.
+## Remarks
+### **Uncaught exceptions**
+Since solving the problem requires a program that works correctly on a large number of different input data, it is inevitable that errors may be found in it. 
+ One such error can be an uncaught exception: the error is that the exception, being thrown, does not fall under any of the catch block expressions up to the main function. In this case, the program will immediately terminate abnormally, and you will see "Unknown signal 6" as an error in the test.
 
 
 
